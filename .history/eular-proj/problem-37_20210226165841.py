@@ -36,5 +36,3 @@ isPerfectPrime(prime)
 
 for i, value in enumerate(prime):
     if value==1: print(i)
-
-print(prime[73],prime[739])

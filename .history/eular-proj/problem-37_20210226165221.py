@@ -18,23 +18,18 @@ def isPrime(prime):
 
 def isPerfectPrime(prime):
     for j in range(2, len(prime)):
-        if prime[j]==1:
-            i = 10
-            while i < j:
-                rmd = int(j % i)
-                quotient = j // i
-                if prime[rmd] == 0 or prime[quotient] == 0:
-                    prime[j] = 2
-                    break
-                i = i * 10
+        prime[j]=2
+        i = 10
+        while i < j:
+            rmd = int(j % i)
+            quotient = j // i
+            if prime[rmd] == 0 or prime[quotient] == 0: 
+                prime[j]=1
+                break
+            i = i * 10
+        
 
-
-prime = []
-initialize(prime, 1000000)
+prime=[]
+initialize(prime,1000000)
 isPrime(prime)
 isPerfectPrime(prime)
-
-for i, value in enumerate(prime):
-    if value==1: print(i)
-
-print(prime[73],prime[739])
