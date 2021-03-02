@@ -11,7 +11,7 @@ def fun(num):
             prim += 1
     return res
 size=100000000000000000
-i=21
+i=210 #有四个不同质因数的最小数
 while i<size:
     if len(fun(i+3))<4: i+=4
     elif len(fun(i+2))<4: i+=3
