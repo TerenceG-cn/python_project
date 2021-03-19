@@ -1,4 +1,5 @@
 import math
+import copy
 
 
 # 三边形数
@@ -23,7 +24,7 @@ def is_square(num):
 
 # 五边形数
 def is_pentagonal(n):
-    # or math.sqrt(1+24*n)%6==1 广义五边形数
+    # return math.sqrt(1 + 24 * n) % 6 == 5 or math.sqrt(1+24*n)%6==1 广义五边形数
     return math.sqrt(1 + 24 * n) % 6 == 5
 
 
@@ -42,7 +43,14 @@ def is_octagonal(n):
     return math.sqrt(1 + 3 * n) % 3 == 2
 
 
-figurate_numbers_dict = {'triange':[], 'square':[], 'pentagonal':[], 'hexagonal':[], 'heptagonal':[], 'octagonal':[]}
+figurate_numbers_dict = {
+    'triange': [],
+    'square': [],
+    'pentagonal': [],
+    'hexagonal': [],
+    'heptagonal': [],
+    'octagonal': []
+}
 for num in range(1000, 10000):
     if is_triangle(num): figurate_numbers_dict['triange'].append(num)
     if is_square(num): figurate_numbers_dict['square'].append(num)
@@ -51,29 +59,26 @@ for num in range(1000, 10000):
     if is_heptagonal(num): figurate_numbers_dict['heptagonal'].append(num)
     if is_octagonal(num): figurate_numbers_dict['octagonal'].append(num)
 
-def dfs(res_seq,k,count):
-    # print(res_seq,k,count)
-    if count==len(res_seq): 
-        if res_seq[k][0]%100==res_seq['triange'][0]//100:
-            return True
-        else: return False
+
+def rec_fun(tar_num, tar_polygon, fig_nums, res):
+    res.append(tar_num)
+    del fig_nums[tar_polygon]
+    if fig_nums == {}:
+        if res[0] // 100 == res[-1] % 100:
+            print(res)
+            print(sum(res))
+        else:
+            del res[-1]
     else:
-        for i in res_seq:
-            if res_seq[i][1]==0 and res_seq[k][0]%100==res_seq[i][0]//100:
-                res_seq[i][1]=1
-                return dfs(res_seq,i,count+1)
-        return False    
-        
-for tri in figurate_numbers_dict['triange']:
-    for squ in figurate_numbers_dict['square']:
-        for pen in figurate_numbers_dict['pentagonal']:
-            for hex in figurate_numbers_dict['hexagonal']:
-                for hep in figurate_numbers_dict['heptagonal']:
-                    for oct in figurate_numbers_dict['octagonal']:
-                        res_seq={'triange':[tri,0],'square':[squ,0],'pentagonal':[pen,0],'hexagonal':[hex,0],'heptagonal':[hep,0],'octagonal':[oct,0]}
-                        if dfs(res_seq,k='triange',count=1):
-                            print(res_seq)
+        for polygon in fig_nums:
+            for n in fig_nums[polygon]:
+                if n // 100 == tar_num % 100:
+                    new_fig_nums = copy.deepcopy(fig_nums)
+                    rec_fun(n, polygon, new_fig_nums, res)
+        del res[-1]
 
 
-
-        
+fig_nums = copy.deepcopy(figurate_numbers_dict)
+for n in figurate_numbers_dict['triange']:
+    rec_fun(n, 'triange', fig_nums, res=[])
+    fig_nums['triange'] = figurate_numbers_dict['triange']
