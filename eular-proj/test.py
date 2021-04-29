@@ -1,5 +1,4 @@
-str="12345678"
-
-#2:1 5:4
-str=str[:1]+"5"+str[1,4]+str[5:]
-print(str)
+from itertools import combinations
+L = set([11,18,19,20,22,25])
+result_list = sum([list(map(list, combinations(L, i))) for i in range(len(L) + 1)], [])
+print('result_list =', result_list)
