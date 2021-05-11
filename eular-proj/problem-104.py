@@ -1,7 +1,7 @@
 def is_right(n):
     n=str(n)
-    return set(n[0:9])==set('123456789') and set(n[-10:-1])==set('123456789')
-        
+    return set(n[:9])==set('123456789') and set(n[-10:])==set('123456789')
+
 a=b=1
 k=3
 while True :
