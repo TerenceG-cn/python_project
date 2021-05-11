@@ -1,18 +1,23 @@
-def digitCount(k, n):
-    count=0
-    while n>0:
-        tmp=n%10
-        if tmp==k: count+=1
-        n=n//10
-    return count
-def digitCounts(n):
-    count=[0]*10
-    while n>0:
-        tmp=n%10
-        count[tmp]+=1
-        n=n//10
-    return count
+# import sys
+# import stdarray
+# import stdio
+# n = int(sys.argv[1])
+# isPrime = stdarray.create1D(n+1, True)
+# for i in range(2,n+1):
+#     if isPrime[i]:
+#         #Mark multiples of i as nonprime.
+#         for j in range(2,n//i+1):
+#             isPrime[i*j]=False
+# # Count the primes.
+# count = 0
+# for i in range(2,n+1):
+#     if isPrime[i]:
+#          count += 1
+# stdio.write(count)
 
-n=1473274927421111122312111
-print(digitCount(1,n))
-print(digitCounts(n))
+
+from primesieve import *
+#primes(100000, 1000000)
+print(primes(1000000000, 10000000000))
+
+

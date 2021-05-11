@@ -4,5 +4,7 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.pythonPath": "C:\\Users\\10352\\.virtualenvs\\PesonalTestDemo-MIMLMTzC\\Scripts\\python.exe"
+	}
 }
