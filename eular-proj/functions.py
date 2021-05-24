@@ -15,8 +15,7 @@ def gcd(a, b):
         return 0
     while b != 0:
         c = a % b
-        a = b
-        b = c
+        a, b = b, c
     return a
 
 def digitCount(k, n):
