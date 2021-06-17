@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 requests = "*"
+lxml = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
