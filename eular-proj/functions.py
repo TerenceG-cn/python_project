@@ -33,3 +33,18 @@ def digitCounts(n):
         count[tmp]+=1
         n=n//10
     return count
+
+# 欧拉函数
+def eular_func(n):
+    j=1
+    for i in range(2,n):
+        a=n
+        q=i
+        r=a%i
+        while r!=1 and r!=0:
+            a=int(q)
+            q=int(r)
+            r=int(a)%int(q)
+        if r==1: j+=1
+        elif r==0: pass
+    return j

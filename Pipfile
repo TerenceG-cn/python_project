@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 requests = "*"
 lxml = "*"
+stdio = "*"
+primesieve = "*"
+eulerlib = "*"
 
 [dev-packages]
 
