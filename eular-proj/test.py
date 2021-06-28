@@ -1,27 +1,14 @@
-import primesieve
-import math
-#print(primesieve.n_primes(math.pow(10,5)))
+def findSubStr(substr, str, i):
+    count = 0
+    while i > 0:
+        index = str.find(substr)
+        if index == -1:
+            return -1
+        else:
+            str = str[index+1:]   #第一次出现的位置截止后的字符串
+            print (str)
+            i -= 1
+            count = count + index + 1   #字符串位置数累加
+    return count - 1
 
-#help(primesieve)
-
-import primesieve
-
-it = primesieve.Iterator()
-prime = it.next_prime()
-
-# Iterate over the primes below 10000
-# while prime < 10000:
-#     print(prime)
-#     prime = it.next_prime()
-
-# Set iterator start number to 100
-it.skipto(int(math.pow(10,14)))
-prime1 = it.next_prime()
-prime2 = it.next_prime()
-print(prime1,prime2)
-
-# Iterate backwards over the primes below 100
-# while prime > 0:
-#     print(prime)
-#     prime = it.prev_prime()
-
+print(findSubStr('23','123456789101112131415161718192021222324252627282930313233343536...',3))

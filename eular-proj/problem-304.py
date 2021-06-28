@@ -3,6 +3,8 @@ import primesieve
 import math 
 import sys
 
+# 黄志斌 https://www.ituring.com.cn/article/132686?utm_source=tuicool
+
 def a(n):
     it = primesieve.Iterator()
     
@@ -65,3 +67,5 @@ def b(n):
 # print(sum%1234567891011)
 # print(f2(2),f2(3))
 # print(f2(100000000000031))
+
+#todo
