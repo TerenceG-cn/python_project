@@ -12,7 +12,7 @@ def is_prime(num):
 
 
 MAX_FULL_NUM = "987654321"
-for i in range(0, 9): 
+for i in range(0, 9):
     for permu in permutations(MAX_FULL_NUM[i:]):
         num = int(''.join(permu))
         if is_prime(num):

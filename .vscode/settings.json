@@ -1,4 +1,8 @@
 {
     "python.formatting.provider": "yapf",
+<<<<<<< Updated upstream
     "python.pythonPath": "C:\\Users\\TERENCE\\.virtualenvs\\python_project-c-DFCnJO\\Scripts\\python.exe"
+=======
+    "python.pythonPath": "C:\\Users\\10352\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+>>>>>>> Stashed changes
 }

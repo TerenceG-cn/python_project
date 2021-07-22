@@ -9,6 +9,8 @@ lxml = "*"
 stdio = "*"
 primesieve = "*"
 eulerlib = "*"
+numpy = "*"
+cypari = "*"
 
 [dev-packages]
 
